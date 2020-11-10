@@ -1,0 +1,28 @@
+{
+    "doc": "oiads event schema.",
+    "fields": [
+    {
+        "doc": "uuid da campanha.",
+        "name": "campaignuuid",
+        "type": "string"
+    },
+    {
+        "doc": "timestamp do evento.",
+        "name": "eventdate",
+        "type": "string"
+    },
+    {
+        "doc": "nome do evento",
+        "name": "event",
+        "type": "string"
+    },
+    {
+        "doc": "zona da campanha ",
+        "name": "zoneuuid",
+        "type": "string"
+    }
+    ],
+    "name": "OiadsEvent",
+    "namespace": "com.cdp.oiads",
+    "type": "record"
+}

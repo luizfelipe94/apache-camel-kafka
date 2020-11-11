@@ -23,16 +23,15 @@ public class FileReaderRoute extends RouteBuilder {
                 .split().tokenize("\n", 1, true).streaming()
                 .executorService(threadPool)
                 .bean(new CsvToMapTransform())
-                .bean(new MapToOiadsEventAvroTransform())
 //                sem agregacao ainda. vai ser testado chamando direto os brokers do kafka. dps testar passando array para o rest proxy
-                .aggregate(constant("kafkamsg"), new ArrayListAggregationStrategy())
-                .parallelProcessing()
-                .executorService(threadPool)
-                .completionSize(constant("10"))
-                .completionInterval(3000)
-                .forceCompletionOnStop()
-                .log(LoggingLevel.INFO, "Enviando lote de tamanho ${body.size} - batchId ${header.CamelCorrelationId}")
-                .executorService(threadPool)
+//                .aggregate(constant("kafkamsg"), new ArrayListAggregationStrategy())
+//                .parallelProcessing()
+//                .executorService(threadPool)
+//                .completionSize(constant("10"))
+//                .completionInterval(3000)
+//                .forceCompletionOnStop()
+//                .log(LoggingLevel.INFO, "Enviando lote de tamanho ${body.size} - batchId ${header.CamelCorrelationId}")
+//                .executorService(threadPool)
                 .to("direct:kafkaProducerRoute");
 
     }
